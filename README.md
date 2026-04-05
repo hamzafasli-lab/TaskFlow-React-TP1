@@ -51,9 +51,9 @@ Q6 : Intérêt des Interfaces pour les props
 
 Elles servent de "contrat". Elles permettent d'avoir l'autocomplétion dans l'éditeur et d'éviter les erreurs en forçant le passage des bonnes données au bon format.
 
-📝 Compte-Rendu du TP - Séance 21.
+📝 Compte-Rendu du TP - Séance 2
 
-Authentification & Gestion d'État (Reducer)
+1.Authentification & Gestion d'État (Reducer)
 
 Q4 : Pourquoi e.preventDefault() est-il indispensable dans le formulaire ?
 
