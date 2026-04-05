@@ -1,73 +1,41 @@
-# React + TypeScript + Vite
+# 🚀 TaskFlow - Projet React & TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bienvenue sur le dépôt du projet **TaskFlow**, réalisé dans le cadre des travaux pratiques de développement Web. 
 
-Currently, two official plugins are available:
+## 🛠 Installation et Lancement
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Pour faire tourner le projet localement :
 
-## React Compiler
+1. **Cloner le dépôt**
+2. **Installer les dépendances :**
+   ```bash
+   npm install
+   Lancer le serveur de données (Mock Backend) :
+Note : Indispensable pour l'authentification.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Bash
+npx json-server db.json --port 4000
+Lancer l'application :
 
-## Expanding the ESLint configuration
+Bash
+npm run dev
+📝 Compte-Rendu : Séance 1 
+Q1 : Rôle du fichier tsconfig.json
+Il configure le compilateur TypeScript. Il définit les règles de typage (plus ou moins strictes) et la manière dont le code est transformé en JavaScript compatible avec les navigateurs.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Q2 : Composant fonctionnel vs Classe
+Les composants fonctionnels sont plus légers et utilisent des Hooks (useState, useEffect) pour gérer l'état. Les classes sont l'ancienne méthode et utilisaient this et des méthodes de cycle de vie plus complexes.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Q3 : Pourquoi une Majuscule aux composants ?
+C'est une convention JSX. Une minuscule indique une balise HTML standard (ex: <div>), tandis qu'une Majuscule indique à React qu'il s'agit d'un composant personnalisé que vous avez créé.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Q4 : Props vs State
+Props : Données transmises par le parent (lecture seule). Elles servent à configurer l'enfant.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+State : Mémoire interne du composant. S'il change, React rafraîchit l'affichage automatiquement.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Q5 : Remonter une information (Enfant -> Parent)
+On utilise un callback. Le parent passe une fonction via les props, et l'enfant l'appelle pour envoyer des données vers le haut.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Q6 : Intérêt des Interfaces pour les props
+Elles servent de "contrat". Elles permettent d'avoir l'autocomplétion dans l'éditeur et d'éviter les erreurs en forçant le passage des bonnes données au bon format.
