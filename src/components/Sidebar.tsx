@@ -1,6 +1,7 @@
 import styles from './Sidebar.module.css';
 interface Project { id: string; name: string; color: string; }
 interface SidebarProps { projects: Project[]; isOpen: boolean; }
+  // ... your other logic (auth, sidebar, etc.)
 export default function Sidebar({ projects, isOpen }: SidebarProps) {
 return (
 <aside className={`${styles.sidebar} ${isOpen ? styles.open : styles.closed}`}>
