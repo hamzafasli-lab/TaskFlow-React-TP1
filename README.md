@@ -14,7 +14,9 @@ Pour faire tourner le projet localement :
 Note : Indispensable pour l'authentification.
 
 Bash
+
 npx json-server db.json --port 4000
+
 Lancer l'application :
 
 Bash
